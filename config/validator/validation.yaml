@@ -1,0 +1,7 @@
+App\Model\Link:
+  properties:
+    url:
+      - NotBlank: ~
+      - Url: ~
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: url

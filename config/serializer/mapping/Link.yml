@@ -1,0 +1,41 @@
+App\Model\Link:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      since: 1.0
+    url:
+      expose: true
+    createdAt:
+      expose: true
+    provider:
+      expose: true
+    title:
+      expose: true
+    author:
+      expose: true
+    video:
+      expose: true
+    image:
+      expose: true
+  relations:
+    - rel: create
+      href:
+        route: link_create
+        absolute: true
+    - rel: list
+      href:
+        route: link_list
+        absolute: true
+    - rel: delete
+      href:
+        route: link_delete
+        parameters:
+          id: expr(object.getId())
+        absolute: true
+    - rel: image
+      embedded:
+        content: expr(object.getImage())
+    - rel: video
+      embeddes:
+        content: expr(object.getVideo())
